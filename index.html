@@ -257,6 +257,29 @@
       font-weight: 500;
       color: var(--accent);
     }
+    /* MOBILE DISPLAY FIX */
+@media (max-width: 600px) {
+  .photo-grid, .funny-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .polaroid, .funny-card {
+    width: 90% !important;
+    max-width: 320px !important;
+    margin: 0 auto 15px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .polaroid img, .funny-card img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -269,7 +292,7 @@
     <button class="music-btn" id="musicToggle">🎵</button>
     <span class="music-text" id="musicStatus">Play Song</span>
     <!-- Replace 'song.mp3' with your audio file name -->
-    <audio id="bgMusic" loop src="song.mp3"></audio>
+    <audio id="bgMusic" loop src="Yaariyaan.mp3"></audio>
   </div>
 
   <div class="container">
