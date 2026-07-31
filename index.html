@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Friendship Day! ✨</title>
+  
+  <!-- Modern Clean Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --card-bg: #ffffff;
+      --text-main: #2b2927;
+      --text-muted: #736c64;
+      --accent: #8a735c;
+      --font-hand: 'Caveat', cursive;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* SPARKLE BACKGROUND EFFECT */
+    .sparkle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        radial-gradient(circle, rgba(212, 175, 55, 0.25) 1px, transparent 1px),
+        radial-gradient(circle, rgba(138, 115, 92, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px, 70px 70px;
+      background-position: 0 0, 20px 20px;
+      animation: floatSparkles 12s infinite linear;
+    }
+
+    @keyframes floatSparkles {
+      0% { background-position: 0 0, 20px 20px; }
+      100% { background-position: 40px 40px, 60px 60px; }
+    }
+
+    /* ANIMATED FLOATING STICKERS */
+    .floating-sticker {
+      position: absolute;
+      font-size: 2.2rem;
+      pointer-events: none;
+      z-index: 10;
+      animation: bounce 3s ease-in-out infinite alternate;
+    }
+
+    .sticker-1 { top: -15px; left: -10px; transform: rotate(-12deg); }
+    .sticker-2 { top: -15px; right: -10px; transform: rotate(15deg); animation-delay: 1s; }
+    .sticker-3 { bottom: -15px; right: 10px; transform: rotate(-8deg); animation-delay: 1.5s; }
+
+    @keyframes bounce {
+      0% { transform: translateY(0px) rotate(-10deg); }
+      100% { transform: translateY(-8px) rotate(10deg); }
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    /* HEADER BANNER */
+    .header-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0,0,0,0.03);
+      position: relative;
+    }
+
+    .friend-name {
+      font-family: var(--font-hand);
+      font-size: 3.8rem;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .title-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .direct-note {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-family: var(--font-hand);
+      font-size: 2.4rem;
+      text-align: center;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    /* MULTI-PHOTO GALLERY (MEMORIES) */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .polaroid {
+      background: #ffffff;
+      padding: 12px 12px 18px 12px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border: 1px solid #f0eae1;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .polaroid:hover {
+      transform: translateY(-5px) scale(1.01);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .polaroid-caption {
+      font-family: var(--font-hand);
+      font-size: 1.4rem;
+      text-align: center;
+      margin-top: 8px;
+      color: var(--text-main);
+    }
+
+    /* FUNNY PICTURES & GIFS SECTION */
+    .funny-section {
+      background: #fdfbf7;
+      border: 2px dashed #e6dfd3;
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .funny-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .funny-card {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #efe8dd;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .funny-card:hover {
+      transform: rotate(1deg) scale(1.02);
+    }
+
+    .funny-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .funny-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    /* FINAL NOTE CARD */
+    .note-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0,0,0,0.03);
+      position: relative;
+    }
+
+    .note-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    /* FLOATING MUSIC PLAYER */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffffff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #eae3d9;
+      z-index: 100;
+    }
+
+    .music-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .music-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SPARKLE EFFECT -->
+  <div class="sparkle-bg"></div>
+
+  <!-- FLOATING MUSIC PLAYER -->
+  <div class="music-player">
+    <button class="music-btn" id="musicToggle">🎵</button>
+    <span class="music-text" id="musicStatus">Play Song</span>
+    <!-- Replace 'song.mp3' with your audio file name -->
+    <audio id="bgMusic" loop src="song.mp3"></audio>
+  </div>
+
+  <div class="container">
+
+    <!-- 1. PERSONALIZED HEADER -->
+    <div class="header-card">
+      <span class="floating-sticker sticker-1">✨</span>
+      <span class="floating-sticker sticker-2">💖</span>
+      
+      <div class="title-tag">✨ Happy Friendship Day ✨</div>
+      <!-- CHANGE FRIEND'S NAME HERE -->
+      <h1 class="friend-name">Hey, [Friend's Name]! 👋</h1>
+      <p class="direct-note">
+        No overly emotional speech here—just a quick reminder that you're one of my favorite humans. Life is infinitely more hilarious with you around, and I'm super glad we're friends.
+      </p>
+    </div>
+
+    <!-- 2. SPECIAL MEMORIES SECTION -->
+    <div>
+      <h2 class="section-title">Special Memories 📸✨</h2>
+      <div class="photo-grid">
+        
+        <div class="polaroid">
+          <img src="memory1.jpg" alt="Memory 1">
+          <div class="polaroid-caption">Good times ✨</div>
+        </div>
+
+        <div class="polaroid">
+          <img src="memory2.jpg" alt="Memory 2">
+          <div class="polaroid-caption">Best day ever ☕</div>
+        </div>
+
+        <div class="polaroid">
+          <img src="memory3.jpg" alt="Memory 3">
+          <div class="polaroid-caption">Core memory 🌟</div>
+        </div>
+
+        <!-- Copy and paste more polaroid blocks above to add more photos -->
+
+      </div>
+    </div>
+
+    <!-- 3. FUNNY PICTURES & GIFS SECTION -->
+    <div class="funny-section">
+      <span class="floating-sticker sticker-3">🤪</span>
+      <h2 class="section-title">Hall of Fame (The Chaos) 👾</h2>
+      
+      <div class="funny-grid">
+        
+        <div class="funny-card">
+          <img src="funny1.jpg" alt="Funny Photo 1">
+          <div class="funny-tag">100% Unprovoked</div>
+        </div>
+
+        <div class="funny-card">
+          <img src="funny2.jpg" alt="Funny Photo 2">
+          <div class="funny-tag">Peak Chaos</div>
+        </div>
+
+        <div class="funny-card">
+          <!-- Direct GIF link support -->
+          <img src="funny3.gif" alt="Cute GIF or funny photo">
+          <div class="funny-tag">Main Character Energy</div>
+        </div>
+
+        <!-- Copy and paste more funny-card blocks above to add more funny photos/GIFs -->
+
+      </div>
+    </div>
+
+    <!-- 4. SHORT FINAL NOTE WITH BENGALI LINES -->
+    <div class="note-card">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 12px;">A Quick Word 💌</h2>
+      <p class="note-text">
+        Thanks for always keeping it real, answering my chaotic messages, and never judging my questionable life choices.
+      </p>
+      
+      <!-- BENGALI NOTES (SWEET + FUNNY) -->
+      <p class="note-text" style="font-family: 'Caveat', cursive; font-size: 1.6rem; color: #8a735c; margin-top: 14px; line-height: 1.4;">
+        "তোর মতো এমন একটা পাগল বন্ধু পাওয়া সত্যিই ভাগ্যের ব্যাপার। সবসময় পাশে থাকার জন্য অনেক ধন্যবাদ, শুভ বন্ধুত্ব দিবস! 🥂✨<br>
+        তুই এতটাই পুণ্য করেছিস যে আমার মত একটা বন্ধু পেয়েছিস।"
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    // Audio Player Toggle
+    const audio = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    const musicStatus = document.getElementById('musicStatus');
+
+    musicBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        musicBtn.innerText = '⏸️';
+        musicStatus.innerText = 'Playing...';
+      } else {
+        audio.pause();
+        musicBtn.innerText = '🎵';
+        musicStatus.innerText = 'Play Song';
+      }
+    });
+  </script>
+</body>
+</html>
